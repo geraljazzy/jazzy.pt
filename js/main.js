@@ -19,6 +19,7 @@
   $$("[data-hours]").forEach(el => el.textContent = S.horario);
   $$("[data-instagram]").forEach(a => a.href = "https://www.instagram.com/" + S.instagram);
   $$("[data-instagram-handle]").forEach(el => el.textContent = "@" + S.instagram);
+  $$("[data-email],[data-area],[data-hours]").forEach(el => { if (!el.textContent.trim()) (el.closest("dl > div, li") || el).style.display = "none"; });
   $("#year").textContent = new Date().getFullYear();
 
   /* ---------- Menu (telemóvel) ---------- */

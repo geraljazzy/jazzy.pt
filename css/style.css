@@ -1,4 +1,4 @@
-/* Monteiro Serviços */
+/* MonteiroServic */
 :root {
   --navy: #0a2a57;
   --blue: #1553a6;
@@ -289,3 +289,7 @@ p { margin: 0; }
   .statement { padding-block: 72px; }
   .statement__inner { grid-template-columns: 1fr; gap: 32px; }
 }
+
+/* Logótipo */
+.logo img { height: 46px; width: auto; display: block; }
+@media (max-width: 900px) { .logo img { height: 32px; } }

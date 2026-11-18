@@ -5,12 +5,12 @@
 
 window.SITE = {
   // ---- Contactos -----------------------------------------------------
-  whatsapp: "351912345678",          // só números, com indicativo (351…); abre o chat diretamente
+  whatsapp: "351930667321",          // só números, com indicativo (351…); abre o chat diretamente
   mensagemWhatsapp: "Olá, gostaria de pedir um orçamento.",
-  telefone: "+351 912 345 678",
-  email: "geral@monteiroservicos.pt",
-  zona: "Portugal — Norte e Centro",
-  horario: "Seg–Sáb · 08h00–19h00",
+  telefone: "930 667 321",
+  email: "",      // deixe vazio para não aparecer no site
+  zona: "",       // ex.: "Setúbal e arredores"
+  horario: "",    // ex.: "Seg–Sáb · 08h00–19h00"
   instagram: "monteiro_servic",
 
   // De quantos em quantos segundos muda o trabalho em destaque no topo
