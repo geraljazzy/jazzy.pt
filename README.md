@@ -48,3 +48,8 @@ Algumas dicas:
 - Design sóbrio azul e branco, sem cantos arredondados, adaptado a telemóvel
 
 `monteiro-servicos-V1.html` (design anterior) e `monteiro-servicos-V2.html` (design atual, igual ao `index.html`) e `monteiro-servicos-V3.html` (proposta mais recente, gerada a partir de `v3/template.html` e de `js/config.js`) são cópias do site num só ficheiro, para comparar. Não se atualizam sozinhas: têm de ser geradas de novo depois de alterar os outros ficheiros.
+
+## Fotos reais e ficheiros únicos
+
+- As fotos originais estão em `img/projetos/`. As versões usadas no site (recortadas para 3:2, 1500 px, sem dados de localização) estão em `img/projetos/web/`.
+- Depois de alterar `js/config.js`, as fotos ou os ficheiros do site, correr `python3 build.py` para gerar de novo `monteiro-servicos-V1.html`, `-V2.html` e `-V3.html`, já com as fotos embutidas.
