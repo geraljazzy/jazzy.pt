@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>V3 · Monteiro Serviços</title>
+<meta name="description" content="Monteiro Serviços: remodelações, pintura, pavimentos, canalização, eletricidade e manutenção. Veja trabalhos realizados e peça orçamento.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0a1b33;
+  --blue: #1648c8;
+  --blue-deep: #0f38a3;
+  --pale: #eef3fb;
+  --muted: #5b677a;
+  --line: #dbe2ec;
+  --white: #fff;
+  --wa: #25d366;
+  --g: clamp(20px, 3.2vw, 48px);
+  --header-h: 72px;
+  --display: "Bricolage Grotesque", "Hanken Grotesk", system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; border-radius: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+body { margin: 0; font: 400 17px/1.55 "Hanken Grotesk", system-ui, sans-serif; color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; }
+body.no-scroll { overflow: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -.035em; line-height: .98; }
+h2 { font-size: clamp(2.4rem, 5.4vw, 5rem); }
+.wrap { padding-inline: var(--g); }
+.ico { width: 20px; height: 20px; fill: currentColor; flex: none; }
+.u { border-bottom: 1.5px solid currentColor; padding-bottom: 3px; transition: color .2s; }
+.u:hover { color: var(--blue); }
+
+/* Cabeçalho */
+.header { position: fixed; inset: 0 0 auto; z-index: 50; height: var(--header-h); background: var(--white); border-bottom: 1px solid transparent; transition: border-color .2s; }
+.header.is-scrolled { border-color: var(--line); }
+.header__in { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.logo { font: 700 1.35rem/1 var(--display); letter-spacing: -.04em; }
+.logo i { font-style: normal; color: var(--blue); }
+.nav { display: flex; align-items: center; gap: 34px; font-weight: 500; font-size: .97rem; }
+.nav a:not(.nav__wa) { transition: color .2s; }
+.nav a:not(.nav__wa):hover { color: var(--blue); }
+.nav__wa { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; padding: .62rem 1rem; background: var(--ink); color: #fff; transition: background .2s; }
+.nav__wa .ico { fill: var(--wa); }
+.nav__wa:hover { background: var(--blue); }
+.burger { display: none; width: 44px; height: 44px; background: none; border: 0; cursor: pointer; padding: 12px 9px; }
+.burger span { display: block; height: 2px; background: var(--ink); margin: 6px 0; transition: transform .25s; }
+.burger.is-open span:first-child { transform: translateY(4px) rotate(45deg); }
+.burger.is-open span:last-child { transform: translateY(-4px) rotate(-45deg); }
+
+/* Abertura */
+.hero { padding-top: calc(var(--header-h) + clamp(28px, 5vw, 72px)); }
+.hero h1 { font-size: clamp(3.3rem, 12.4vw, 13rem); font-weight: 700; letter-spacing: -.045em; line-height: .88; }
+.hero h1 span { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .08em; }
+.hero h1 b { display: inline-block; font-weight: inherit; animation: rise .9s cubic-bezier(.2,.7,.1,1) both; }
+.hero h1 span:nth-child(2) b { animation-delay: .08s; }
+.hero h1 span:nth-child(3) b { animation-delay: .16s; color: var(--blue); }
+@keyframes rise { from { transform: translateY(105%); } }
+.hero__row { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin: clamp(24px, 3.4vw, 48px) 0 clamp(28px, 3.4vw, 48px); }
+.hero__lead { font-size: clamp(1.05rem, 1.5vw, 1.3rem); max-width: 30em; color: var(--muted); }
+.hero__lead strong { color: var(--ink); font-weight: 500; }
+.hero__links { display: flex; align-items: center; gap: 28px; font-weight: 600; white-space: nowrap; }
+.hero__links .wa { display: inline-flex; align-items: center; gap: 9px; }
+.hero__links .wa .ico { fill: var(--wa); width: 22px; height: 22px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; padding: 1.05rem 1.7rem; font-weight: 600; border: 0; cursor: pointer; background: var(--blue); color: #fff; transition: background .2s; }
+.btn:hover { background: var(--ink); }
+.stage .ba { aspect-ratio: 21 / 9; }
+.stage__bar { position: relative; display: grid; grid-template-columns: auto auto 1fr; align-items: center; gap: 28px; padding: 18px var(--g); border-bottom: 1px solid var(--line); }
+.stage__count { font: 600 1rem var(--display); font-variant-numeric: tabular-nums; }
+.stage__count em { font-style: normal; color: var(--muted); }
+.stage__title { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stage__title strong { font-weight: 600; margin-right: 14px; }
+.stage__title span { color: var(--muted); }
+.stage__arrows { display: flex; gap: 8px; order: -1; }
+.stage__arrows button { width: 46px; height: 46px; background: none; border: 1px solid var(--line); cursor: pointer; font-size: 1.1rem; transition: all .2s; }
+.stage__arrows button:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+.stage__progress { position: absolute; left: 0; right: 0; top: 0; height: 3px; }
+.stage__progress i { display: block; height: 100%; background: var(--blue); transform: scaleX(0); transform-origin: left; }
+
+/* Comparador */
+.ba { --pos: 50%; position: relative; overflow: hidden; user-select: none; touch-action: pan-y; cursor: ew-resize; background: var(--ink); transition: opacity .35s; }
+.ba.is-swapping { opacity: 0; }
+.ba__img { position: absolute; inset: 0; }
+.ba__img img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.ba__img--before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba__ph { display: none; }
+.ba__img.is-missing img { display: none; }
+.ba__img.is-missing .ba__ph { position: absolute; inset: 0; display: block; background-size: cover; background-position: center; }
+.ba__img--before.is-missing .ba__ph { background-color: #0f2a52; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400' preserveAspectRatio='xMidYMid slice'%3E%3Cg fill='none' stroke='%23fff' stroke-opacity='.26' stroke-width='1'%3E%3Cpath d='M190 120h220v160H190zM0 0l190 120M600 0L410 120M0 400l190-120M600 400L410 280'/%3E%3Cpath d='M250 160h100v80H250zM300 160v80M250 200h100'/%3E%3Cpath d='M127 320h346M63 360h474M240 280L160 400M300 280v120M360 280l80 120' stroke-opacity='.14'/%3E%3C/g%3E%3C/svg%3E"); }
+.ba__img--after.is-missing .ba__ph { background-color: #e7eefa; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400' preserveAspectRatio='xMidYMid slice'%3E%3Cpath d='M190 120h220v160H190z' fill='%23fff'/%3E%3Cpath d='M0 400l190-120h220l190 120z' fill='%23d3e0f5'/%3E%3Cpath d='M250 160h100v80H250z' fill='%23b7cff3'/%3E%3Cg fill='none' stroke='%231648c8' stroke-opacity='.38' stroke-width='1'%3E%3Cpath d='M190 120h220v160H190zM0 0l190 120M600 0L410 120M0 400l190-120M600 400L410 280'/%3E%3Cpath d='M250 160h100v80H250zM300 160v80M250 200h100'/%3E%3Cpath d='M127 320h346M63 360h474M240 280L160 400M300 280v120M360 280l80 120' stroke-opacity='.2'/%3E%3C/g%3E%3C/svg%3E"); }
+.ba__tag { position: absolute; bottom: 16px; z-index: 3; font-size: .78rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; pointer-events: none; padding: 6px 10px; }
+.ba__tag--before { left: 16px; background: var(--ink); color: #fff; }
+.ba__tag--after { right: 16px; background: #fff; color: var(--ink); }
+.ba__handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 1.5px; margin-left: -.75px; background: #fff; z-index: 4; outline: none; }
+.ba__knob { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; background: #fff; display: grid; place-items: center; transition: background .2s; }
+.ba__knob svg { width: 22px; height: 22px; fill: none; stroke: var(--ink); stroke-width: 1.8; transition: stroke .2s; }
+.ba:hover .ba__knob, .ba__handle:focus-visible .ba__knob { background: var(--blue); }
+.ba:hover .ba__knob svg, .ba__handle:focus-visible .ba__knob svg { stroke: #fff; }
+
+/* Texto de apresentação */
+.about { padding-block: clamp(80px, 11vw, 168px); display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 40px; }
+.about__label { font-weight: 600; }
+.about__text { font: 500 clamp(1.6rem, 3.5vw, 3.2rem)/1.14 var(--display); letter-spacing: -.03em; max-width: 21em; }
+.about__text em { font-style: normal; color: var(--blue); }
+.about__facts { margin-top: clamp(36px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 14px 44px; font-weight: 500; color: var(--muted); }
+.about__facts span { display: inline-flex; align-items: center; gap: 12px; }
+.about__facts span::before { content: ""; width: 18px; height: 1.5px; background: var(--blue); }
+
+/* Serviços */
+.services__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; padding-bottom: clamp(28px, 4vw, 56px); }
+.services__head p { color: var(--muted); max-width: 22em; }
+.srv { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr) 56px; gap: 32px; align-items: center; padding: clamp(18px, 2.3vw, 30px) var(--g); border-top: 1px solid var(--line); transition: background .25s, color .25s; }
+.srv:last-child { border-bottom: 1px solid var(--line); }
+.srv h3 { font-size: clamp(1.7rem, 4.6vw, 4.2rem); font-weight: 600; transition: transform .3s cubic-bezier(.2,.7,.1,1); }
+.srv p { color: var(--muted); transition: color .25s; }
+.srv__go { font-size: 1.7rem; text-align: right; transition: transform .3s cubic-bezier(.2,.7,.1,1); }
+.srv:hover, .srv:focus-visible { background: var(--blue); color: #fff; outline: none; }
+.srv:hover h3 { transform: translateX(18px); }
+.srv:hover p { color: #d5e1fb; }
+.srv:hover .srv__go { transform: translateX(-10px); }
+
+/* Trabalhos */
+.works { padding-top: clamp(80px, 11vw, 168px); }
+.works__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-bottom: clamp(28px, 4vw, 56px); }
+.filters { display: flex; flex-wrap: wrap; gap: 6px 26px; }
+.chip { background: none; border: 0; padding: 4px 0; font-weight: 500; color: var(--muted); cursor: pointer; border-bottom: 1.5px solid transparent; transition: color .2s; }
+.chip sup { font-size: .68em; margin-left: 3px; }
+.chip:hover { color: var(--ink); }
+.chip.is-active { color: var(--ink); border-color: var(--ink); }
+.projects { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(40px, 5vw, 80px) clamp(20px, 2.4vw, 36px); align-items: start; }
+.project { grid-column: span 5; }
+.project .ba { aspect-ratio: 1 / 1; }
+.project:nth-child(4n+1), .project:nth-child(4n+4) { grid-column: span 7; }
+.project:nth-child(4n+1) .ba, .project:nth-child(4n+4) .ba { aspect-ratio: 7 / 5; }
+.project__body { display: grid; grid-template-columns: 1fr auto; gap: 6px 24px; padding-top: 16px; }
+.project h3 { font-size: clamp(1.3rem, 2vw, 1.8rem); letter-spacing: -.03em; line-height: 1.1; }
+.project__meta { color: var(--muted); font-size: .95rem; text-align: right; }
+.project p { color: var(--muted); grid-column: 1; }
+.project__open { grid-column: 2; grid-row: 2; align-self: start; justify-self: end; background: none; border: 0; padding: 0 0 2px; font-weight: 600; font-size: .95rem; cursor: pointer; border-bottom: 1.5px solid currentColor; }
+.project__open:hover { color: var(--blue); }
+
+/* Testemunhos */
+.voices { margin-top: clamp(80px, 11vw, 168px); background: var(--blue); color: #fff; padding-block: clamp(72px, 9vw, 136px); }
+.voices__top { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; flex-wrap: wrap; font-weight: 600; margin-bottom: clamp(36px, 5vw, 72px); }
+.voices__top a { display: inline-flex; align-items: center; gap: 9px; border-bottom: 1.5px solid rgba(255,255,255,.5); padding-bottom: 3px; }
+.voices__top a:hover { border-color: #fff; }
+.voices__quote { margin: 0; font: 500 clamp(1.7rem, 4.3vw, 4rem)/1.1 var(--display); letter-spacing: -.035em; max-width: 19em; min-height: 3.3em; transition: opacity .25s; }
+.voices__quote.is-empty { color: rgba(255,255,255,.5); }
+.voices__quote.is-fading { opacity: 0; }
+.voices__who { margin-top: clamp(28px, 3.5vw, 48px); display: flex; align-items: center; gap: 16px; }
+.voices__who img { width: 56px; height: 56px; object-fit: cover; }
+.voices__who strong { display: block; font-weight: 600; }
+.voices__who small { color: #c9d8fb; font-size: .95rem; }
+.voices__tabs { margin-top: clamp(40px, 5vw, 72px); display: flex; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.3); }
+.voices__tabs button { background: none; border: 0; border-top: 2px solid transparent; margin-top: -1px; padding: 18px 36px 0 0; cursor: pointer; color: rgba(255,255,255,.6); font-weight: 500; text-align: left; transition: color .2s; }
+.voices__tabs button:hover { color: #fff; }
+.voices__tabs button.is-active { color: #fff; border-top-color: #fff; }
+
+/* Contacto */
+.contact { padding-block: clamp(80px, 11vw, 168px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(40px, 6vw, 110px); align-items: start; }
+.contact h2 { font-size: clamp(2.6rem, 7vw, 7rem); font-weight: 700; letter-spacing: -.05em; line-height: .9; }
+.contact__big { margin-top: clamp(36px, 5vw, 72px); display: grid; gap: 10px; }
+.contact__big a { display: inline-flex; align-items: center; gap: 16px; width: fit-content; font: 600 clamp(1.5rem, 3vw, 2.6rem)/1.15 var(--display); letter-spacing: -.03em; transition: color .2s; }
+.contact__big a:hover { color: var(--blue); }
+.contact__big .ico { width: .9em; height: .9em; fill: var(--wa); }
+.contact__list { margin: clamp(32px, 4vw, 56px) 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; max-width: 560px; }
+.contact__list dt { font-size: .88rem; color: var(--muted); margin-bottom: 2px; }
+.contact__list dd { margin: 0; font-weight: 500; }
+.contact__list a:hover { color: var(--blue); }
+.form { background: var(--pale); padding: clamp(24px, 3.2vw, 48px); }
+.form h3 { font-size: 1.6rem; letter-spacing: -.03em; margin-bottom: 30px; }
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.form label { display: block; font-size: .88rem; font-weight: 500; color: var(--muted); margin-bottom: 24px; }
+.form input, .form select, .form textarea { display: block; width: 100%; margin-top: 4px; padding: .55rem 0; font: 500 1.05rem "Hanken Grotesk", sans-serif; color: var(--ink); background: transparent; border: 0; border-bottom: 1.5px solid #b9c5d8; appearance: none; -webkit-appearance: none; transition: border-color .2s; }
+.form select { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230a1b33' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 2px center; }
+.form textarea { resize: vertical; }
+.form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--blue); }
+.form .is-invalid { border-color: #c0392b; }
+.form .btn { width: 100%; margin-top: 4px; }
+.form .btn .ico { fill: #fff; }
+.form__note { margin-top: 14px; font-size: .92rem; min-height: 1.4em; }
+.form__note.is-error { color: #c0392b; }
+.form__note.is-ok { color: #1c7a43; }
+
+/* Rodapé */
+.footer { background: var(--ink); color: #9fb0cb; overflow: hidden; }
+.footer__row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-block: 28px; font-size: .95rem; }
+.footer__row a:hover { color: #fff; }
+.footer__mark { font: 700 clamp(4rem, 18.5vw, 20rem)/.74 var(--display); letter-spacing: -.06em; color: var(--blue); white-space: nowrap; margin: clamp(20px, 4vw, 60px) 0 0 -.04em; user-select: none; }
+
+/* WhatsApp flutuante */
+.wa-fab { position: fixed; right: 22px; bottom: 22px; z-index: 40; width: 60px; height: 60px; border-radius: 50%; background: var(--wa); display: grid; place-items: center; box-shadow: 0 4px 16px rgba(0,0,0,.22); transition: transform .2s; }
+.wa-fab svg { width: 34px; height: 34px; fill: #fff; }
+.wa-fab:hover { transform: scale(1.06); }
+
+/* Ampliar */
+.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(6, 16, 32, .97); display: flex; align-items: center; justify-content: center; gap: 16px; padding: 20px; opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; }
+.lightbox.is-open { opacity: 1; visibility: visible; }
+.lightbox .ba { aspect-ratio: 16 / 10; width: min(1100px, 92vw); max-height: 74vh; }
+.lightbox__body { display: flex; flex-direction: column; align-items: center; }
+.lightbox__caption { color: #fff; text-align: center; margin-top: 18px; }
+.lightbox__caption strong { display: block; font: 600 1.3rem var(--display); }
+.lightbox__caption span { color: #9fb0cb; font-size: .95rem; }
+.lightbox button { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.35); cursor: pointer; width: 50px; height: 50px; font-size: 1.2rem; flex: none; }
+.lightbox button:hover { background: #fff; color: var(--ink); }
+.lightbox__close { position: absolute; top: 20px; right: 20px; font-size: 1.7rem !important; }
+
+@media (max-width: 900px) {
+  :root { --header-h: 64px; }
+  .burger { display: block; }
+  .nav { position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0; background: #fff; flex-direction: column; align-items: stretch; gap: 0; padding: 8px var(--g) 24px; transform: translateX(100%); transition: transform .3s ease; }
+  .nav.is-open { transform: none; }
+  .nav a:not(.nav__wa) { font: 600 2rem/1 var(--display); letter-spacing: -.03em; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .nav__wa { margin-top: auto; justify-content: center; padding: 1rem; }
+  .hero__row { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .stage .ba { aspect-ratio: 4 / 3; }
+  .stage__bar { gap: 16px; }
+  .stage__title span { display: none; }
+  .about { grid-template-columns: 1fr; gap: 20px; }
+  .services__head { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .srv { grid-template-columns: 1fr 32px; gap: 6px 16px; }
+  .srv p { grid-column: 1; grid-row: 2; }
+  .srv__go { grid-column: 2; grid-row: 1 / 3; }
+  .srv:hover h3, .srv:hover .srv__go { transform: none; }
+  .project, .project:nth-child(n) { grid-column: 1 / -1; }
+  .project .ba, .project:nth-child(n) .ba { aspect-ratio: 4 / 3; }
+  .contact { grid-template-columns: 1fr; }
+  .lightbox__nav { position: absolute; bottom: 20px; }
+  .lightbox__nav--prev { left: calc(50% - 58px); }
+  .lightbox__nav--next { right: calc(50% - 58px); }
+}
+@media (max-width: 560px) {
+  .form__row { grid-template-columns: 1fr; gap: 0; }
+  .contact__list { grid-template-columns: 1fr; gap: 16px; }
+  .hero__links { flex-wrap: wrap; gap: 18px; white-space: normal; }
+  .voices__tabs button { padding-right: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+</svg>
+
+<header class="header" id="topo">
+  <div class="wrap header__in">
+    <a href="#topo" class="logo" aria-label="Monteiro Serviços, início">Monteiro<i>.</i></a>
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#testemunhos">Testemunhos</a>
+      <a href="#contacto">Contacto</a>
+      <a class="nav__wa" data-whatsapp href="#"><svg class="ico"><use href="#i-wa"/></svg>WhatsApp</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1 aria-label="A diferença vê-se."><span><b>A</b></span> <span><b>diferença</b></span> <span><b>vê-se.</b></span></h1>
+      <div class="hero__row">
+        <p class="hero__lead"><strong>Remodelações, pintura, pavimentos, canalização e eletricidade.</strong> Arraste a barra na imagem e veja como ficaram as obras que já entregámos.</p>
+        <div class="hero__links">
+          <a class="wa u" data-whatsapp href="#"><svg class="ico"><use href="#i-wa"/></svg>Falar no WhatsApp</a>
+          <a class="btn" href="#contacto">Pedir orçamento</a>
+        </div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="ba" id="heroCompare"></div>
+      <div class="stage__bar">
+        <div class="stage__progress"><i id="heroProgress"></i></div>
+        <span class="stage__count" id="heroCount"></span>
+        <p class="stage__title"><strong id="heroTitle"></strong><span id="heroPlace"></span></p>
+        <div class="stage__arrows">
+          <button id="heroPrev" aria-label="Trabalho anterior">←</button>
+          <button id="heroNext" aria-label="Trabalho seguinte">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap about">
+    <p class="about__label">Monteiro Serviços</p>
+    <div>
+      <p class="about__text">Vamos ver o espaço, enviamos o orçamento <em>por escrito</em> e combinamos o prazo. Durante a obra, fala diretamente com quem a está a fazer.</p>
+      <div class="about__facts">
+        <span>Orçamento gratuito</span>
+        <span>Garantia nos trabalhos</span>
+        <span>Obra limpa todos os dias</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="servicos">
+    <div class="wrap services__head">
+      <h2>Serviços</h2>
+      <p>A obra completa ou só a parte de que precisa. Escolha um serviço para pedir orçamento.</p>
+    </div>
+    <a class="srv" href="#contacto" data-servico="Remodelação"><h3>Remodelações</h3><p>Cozinhas, casas de banho e casas completas.</p><span class="srv__go" aria-hidden="true">→</span></a>
+    <a class="srv" href="#contacto" data-servico="Pintura"><h3>Pintura</h3><p>Interiores e exteriores, com reparação de paredes.</p><span class="srv__go" aria-hidden="true">→</span></a>
+    <a class="srv" href="#contacto" data-servico="Pavimentos / revestimentos"><h3>Pavimentos</h3><p>Cerâmica, flutuante, vinílico e microcimento.</p><span class="srv__go" aria-hidden="true">→</span></a>
+    <a class="srv" href="#contacto" data-servico="Canalização"><h3>Canalização</h3><p>Roturas, tubagens, loiças e esquentadores.</p><span class="srv__go" aria-hidden="true">→</span></a>
+    <a class="srv" href="#contacto" data-servico="Eletricidade"><h3>Eletricidade</h3><p>Quadros, tomadas, iluminação e revisões.</p><span class="srv__go" aria-hidden="true">→</span></a>
+    <a class="srv" href="#contacto" data-servico="Manutenção / reparação"><h3>Manutenção</h3><p>Reparações, montagens e impermeabilizações.</p><span class="srv__go" aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="wrap works" id="trabalhos">
+    <div class="works__head">
+      <h2>Trabalhos</h2>
+      <div class="filters" id="filters" role="tablist" aria-label="Filtrar trabalhos"></div>
+    </div>
+    <div class="projects" id="projects"></div>
+  </section>
+
+  <section class="voices" id="testemunhos">
+    <div class="wrap">
+      <div class="voices__top">
+        <span>Testemunhos</span>
+        <a data-whatsapp-review href="#"><svg class="ico"><use href="#i-wa"/></svg>Enviar o meu testemunho</a>
+      </div>
+      <blockquote class="voices__quote" id="voiceQuote"></blockquote>
+      <div class="voices__who" id="voiceWho"></div>
+      <div class="voices__tabs" id="voiceTabs" role="tablist" aria-label="Escolher testemunho"></div>
+    </div>
+  </section>
+
+  <section class="wrap contact" id="contacto">
+    <div>
+      <h2>Fale-nos da sua obra.</h2>
+      <div class="contact__big">
+        <a data-whatsapp href="#"><svg class="ico"><use href="#i-wa"/></svg>WhatsApp</a>
+        <a data-phone href="#"></a>
+      </div>
+      <dl class="contact__list">
+        <div><dt>Email</dt><dd><a data-email href="#"></a></dd></div>
+        <div><dt>Instagram</dt><dd><a data-instagram href="#" target="_blank" rel="noopener" data-instagram-handle></a></dd></div>
+        <div><dt>Zona</dt><dd data-area></dd></div>
+        <div><dt>Horário</dt><dd data-hours></dd></div>
+      </dl>
+    </div>
+    <form class="form" id="quoteForm" novalidate>
+      <h3>Pedido de orçamento</h3>
+      <div class="form__row">
+        <label>Nome<input name="nome" required autocomplete="name"></label>
+        <label>Telefone<input name="telefone" required type="tel" autocomplete="tel"></label>
+      </div>
+      <div class="form__row">
+        <label>Serviço
+          <select name="servico" required>
+            <option value="">Selecione</option>
+            <option>Remodelação</option>
+            <option>Pintura</option>
+            <option>Pavimentos / revestimentos</option>
+            <option>Canalização</option>
+            <option>Eletricidade</option>
+            <option>Manutenção / reparação</option>
+            <option>Outro</option>
+          </select>
+        </label>
+        <label>Localidade<input name="local"></label>
+      </div>
+      <label>Descrição do trabalho<textarea name="mensagem" rows="4" required></textarea></label>
+      <button class="btn" type="submit"><svg class="ico"><use href="#i-wa"/></svg>Enviar pelo WhatsApp</button>
+      <p class="form__note" id="formNote" role="status"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__row">
+      <span>© <span id="year"></span> Monteiro Serviços</span>
+      <a href="#topo">Voltar ao topo ↑</a>
+    </div>
+    <div class="footer__mark" aria-hidden="true">Monteiro</div>
+  </div>
+</footer>
+
+<a class="wa-fab" data-whatsapp href="#" aria-label="Abrir conversa no WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Trabalho em detalhe">
+  <button class="lightbox__close" id="lightboxClose" aria-label="Fechar">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Anterior">←</button>
+  <div class="lightbox__body">
+    <div class="ba" id="lightboxCompare"></div>
+    <div class="lightbox__caption" id="lightboxCaption"></div>
+  </div>
+  <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Seguinte">→</button>
+</div>
+
+<script>
+/* =====================================================================
+   CONFIGURAÇÃO DO SITE — edite apenas este ficheiro para atualizar
+   contactos, trabalhos (antes/depois) e opiniões de clientes.
+   ===================================================================== */
+
+window.SITE = {
+  // ---- Contactos -----------------------------------------------------
+  whatsapp: "351912345678",          // só números, com indicativo (351…); abre o chat diretamente
+  mensagemWhatsapp: "Olá, gostaria de pedir um orçamento.",
+  telefone: "+351 912 345 678",
+  email: "geral@monteiroservicos.pt",
+  zona: "Portugal — Norte e Centro",
+  horario: "Seg–Sáb · 08h00–19h00",
+  instagram: "monteiro_servic",
+
+  // De quantos em quantos segundos muda o trabalho em destaque no topo
+  rotacaoSegundos: 30,
+
+  // ---- Trabalhos: Antes & Depois --------------------------------------
+  // Coloque as fotos em img/projetos/ e indique os nomes abaixo.
+  // Use fotos tiradas do MESMO ângulo para o comparador ficar perfeito.
+  // Categorias disponíveis: definidas automaticamente a partir daqui.
+  projetos: [
+    {
+      titulo: "Remodelação de casa de banho",
+      categoria: "Casas de banho",
+      local: "Porto",
+      antes: "img/projetos/wc-antes.jpg",
+      depois: "img/projetos/wc-depois.jpg",
+      descricao: "Substituição de loiças, base de duche e revestimento integral."
+    },
+    {
+      titulo: "Cozinha moderna",
+      categoria: "Cozinhas",
+      local: "Braga",
+      antes: "img/projetos/cozinha-antes.jpg",
+      depois: "img/projetos/cozinha-depois.jpg",
+      descricao: "Novos móveis, bancada em compacto e iluminação LED."
+    },
+    {
+      titulo: "Pintura de sala",
+      categoria: "Pintura",
+      local: "Guimarães",
+      antes: "img/projetos/sala-antes.jpg",
+      depois: "img/projetos/sala-depois.jpg",
+      descricao: "Reparação de fissuras, tetos e paredes em tons neutros."
+    },
+    {
+      titulo: "Pavimento flutuante",
+      categoria: "Pavimentos",
+      local: "Viana do Castelo",
+      antes: "img/projetos/chao-antes.jpg",
+      depois: "img/projetos/chao-depois.jpg",
+      descricao: "Remoção de alcatifa e aplicação de flutuante AC5."
+    },
+    {
+      titulo: "Fachada renovada",
+      categoria: "Pintura",
+      local: "Aveiro",
+      antes: "img/projetos/fachada-antes.jpg",
+      depois: "img/projetos/fachada-depois.jpg",
+      descricao: "Lavagem, impermeabilização e pintura exterior."
+    },
+    {
+      titulo: "Quarto renovado",
+      categoria: "Remodelações",
+      local: "Matosinhos",
+      antes: "img/projetos/quarto-antes.jpg",
+      depois: "img/projetos/quarto-depois.jpg",
+      descricao: "Estuque, novas tomadas, rodapés e pintura."
+    }
+  ],
+
+  // ---- Testemunhos reais de clientes ---------------------------------
+  // Adicione aqui os testemunhos à medida que os clientes os enviarem.
+  // "foto" é opcional (coloque-a em img/clientes/). Sem foto aparece a inicial.
+  // Enquanto a lista estiver vazia, o site mostra espaços reservados.
+  //
+  // Exemplo:
+  // { nome: "Ana Ribeiro", local: "Porto", servico: "Casa de banho",
+  //   texto: "Escreva aqui o testemunho exatamente como o cliente o enviou.",
+  //   foto: "img/clientes/ana.jpg" },
+  testemunhos: [
+  ],
+
+  // Número de espaços reservados a mostrar enquanto não houver testemunhos
+  espacosTestemunhos: 3
+};
+
+</script>
+<script>
+(() => {
+  "use strict";
+  const S = window.SITE || {};
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const esc = (t = "") => String(t).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const pad = n => String(n).padStart(2, "0");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Contactos */
+  const waLink = (msg = S.mensagemWhatsapp || "Olá, gostaria de pedir um orçamento.") => `https://wa.me/${S.whatsapp}?text=${encodeURIComponent(msg)}`;
+  const ext = a => { a.target = "_blank"; a.rel = "noopener"; };
+  $$("[data-whatsapp]").forEach(a => { a.href = waLink(); ext(a); });
+  $$("[data-whatsapp-review]").forEach(a => { a.href = waLink("Olá, gostaria de deixar o meu testemunho sobre o trabalho realizado:"); ext(a); });
+  $$("[data-phone]").forEach(a => { a.textContent = S.telefone; a.href = "tel:" + (S.telefone || "").replace(/\s/g, ""); });
+  $$("[data-email]").forEach(a => { a.textContent = S.email; a.href = "mailto:" + S.email; });
+  $$("[data-area]").forEach(el => el.textContent = S.zona);
+  $$("[data-hours]").forEach(el => el.textContent = S.horario);
+  $$("[data-instagram]").forEach(a => a.href = "https://www.instagram.com/" + S.instagram);
+  $$("[data-instagram-handle]").forEach(el => el.textContent = "@" + S.instagram);
+  $("#year").textContent = new Date().getFullYear();
+
+  /* Cabeçalho e menu */
+  const header = $(".header");
+  const onScroll = () => header.classList.toggle("is-scrolled", scrollY > 8);
+  addEventListener("scroll", onScroll, { passive: true }); onScroll();
+  const burger = $("#burger"), nav = $("#nav");
+  const toggleNav = open => {
+    nav.classList.toggle("is-open", open); burger.classList.toggle("is-open", open);
+    burger.setAttribute("aria-expanded", open); document.body.classList.toggle("no-scroll", open);
+  };
+  burger.addEventListener("click", () => toggleNav(!nav.classList.contains("is-open")));
+  $$("a", nav).forEach(a => a.addEventListener("click", () => toggleNav(false)));
+
+  /* Comparador antes/depois */
+  function fillCompare(c, p) {
+    $$(".ba__img", c).forEach(el => el.remove());
+    c.insertAdjacentHTML("afterbegin", `
+      <div class="ba__img ba__img--after"><img src="${esc(p.depois)}" alt="${esc(p.titulo)}: depois" draggable="false"><div class="ba__ph"></div></div>
+      <div class="ba__img ba__img--before"><img src="${esc(p.antes)}" alt="${esc(p.titulo)}: antes" draggable="false"><div class="ba__ph"></div></div>`);
+    $$("img", c).forEach(img => {
+      const mark = () => img.parentElement.classList.add("is-missing");
+      img.addEventListener("error", mark);
+      if (img.complete && !img.naturalWidth) mark();
+    });
+  }
+  function buildCompare(c, p, onInteract) {
+    c.innerHTML = `
+      <span class="ba__tag ba__tag--before">Antes</span><span class="ba__tag ba__tag--after">Depois</span>
+      <div class="ba__handle" role="slider" tabindex="0" aria-label="Comparar antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+        <span class="ba__knob"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+      </div>`;
+    fillCompare(c, p);
+    const handle = $(".ba__handle", c);
+    const set = pct => { pct = Math.max(0, Math.min(100, pct)); c.style.setProperty("--pos", pct + "%"); handle.setAttribute("aria-valuenow", Math.round(pct)); };
+    set(50);
+    let drag = false;
+    const from = e => { const r = c.getBoundingClientRect(); set(((e.clientX - r.left) / r.width) * 100); };
+    c.addEventListener("pointerdown", e => { drag = true; c.setPointerCapture(e.pointerId); from(e); onInteract?.(); });
+    c.addEventListener("pointermove", e => drag && from(e));
+    const stop = () => { drag = false; };
+    c.addEventListener("pointerup", stop); c.addEventListener("pointercancel", stop);
+    handle.addEventListener("keydown", e => {
+      const cur = parseFloat(handle.getAttribute("aria-valuenow"));
+      if (e.key === "ArrowLeft") { set(cur - 5); e.preventDefault(); onInteract?.(); }
+      if (e.key === "ArrowRight") { set(cur + 5); e.preventDefault(); onInteract?.(); }
+    });
+    return set;
+  }
+
+  const projetos = S.projetos || [];
+  const metaOf = p => [p.categoria, p.local].filter(Boolean).join(" · ");
+
+  /* Abertura: trabalhos em rotação */
+  const hero = $("#heroCompare");
+  if (hero && projetos.length) {
+    const every = Math.max(5, S.rotacaoSegundos || 30) * 1000, bar = $("#heroProgress");
+    let hi = 0, timer, anim;
+    const restart = () => {
+      clearTimeout(timer); anim?.cancel();
+      if (projetos.length < 2) return;
+      if (!reduce) anim = bar.animate([{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: every, easing: "linear", fill: "forwards" });
+      timer = setTimeout(() => show(hi + 1), every);
+    };
+    const setPos = buildCompare(hero, projetos[0], restart);
+    const label = () => {
+      const p = projetos[hi];
+      $("#heroCount").innerHTML = `${pad(hi + 1)} <em>/ ${pad(projetos.length)}</em>`;
+      $("#heroTitle").textContent = p.titulo; $("#heroPlace").textContent = metaOf(p);
+    };
+    function show(n) {
+      hi = (n + projetos.length) % projetos.length;
+      hero.classList.add("is-swapping");
+      setTimeout(() => { fillCompare(hero, projetos[hi]); setPos(50); label(); hero.classList.remove("is-swapping"); }, reduce ? 0 : 350);
+      restart();
+    }
+    $("#heroPrev").addEventListener("click", () => show(hi - 1));
+    $("#heroNext").addEventListener("click", () => show(hi + 1));
+    if (projetos.length < 2) $(".stage__arrows").hidden = true;
+    label(); restart();
+  }
+
+  /* Trabalhos e filtros */
+  const grid = $("#projects"), filters = $("#filters");
+  const cats = [...new Set(projetos.map(p => p.categoria).filter(Boolean))];
+  filters.innerHTML = [["Todos", projetos.length], ...cats.map(c => [c, projetos.filter(p => p.categoria === c).length])]
+    .map(([c, n], i) => `<button class="chip${i === 0 ? " is-active" : ""}" role="tab" aria-selected="${i === 0}" data-cat="${esc(c)}">${esc(c)}<sup>${n}</sup></button>`).join("");
+  let visible = [];
+  function renderProjects(cat = "Todos") {
+    visible = projetos.map((p, i) => ({ p, i })).filter(({ p }) => cat === "Todos" || p.categoria === cat).map(x => x.i);
+    grid.innerHTML = "";
+    visible.forEach((idx, n) => {
+      const p = projetos[idx], el = document.createElement("article");
+      el.className = "project";
+      el.innerHTML = `<div class="ba"></div>
+        <div class="project__body">
+          <h3>${esc(p.titulo)}</h3><span class="project__meta">${esc(metaOf(p))}</span>
+          <p>${esc(p.descricao || "")}</p><button class="project__open">Ampliar</button>
+        </div>`;
+      buildCompare($(".ba", el), p);
+      $(".project__open", el).addEventListener("click", () => openLightbox(n));
+      grid.appendChild(el);
+    });
+  }
+  filters.addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    $$(".chip", filters).forEach(c => { c.classList.toggle("is-active", c === b); c.setAttribute("aria-selected", c === b); });
+    renderProjects(b.dataset.cat);
+  });
+  renderProjects();
+
+  /* Ampliar */
+  const lb = $("#lightbox"), lbCompare = $("#lightboxCompare"), lbCap = $("#lightboxCaption");
+  let lbPos = 0, lastFocus = null;
+  function showLb(n) {
+    lbPos = (n + visible.length) % visible.length;
+    const p = projetos[visible[lbPos]];
+    buildCompare(lbCompare, p);
+    lbCap.innerHTML = `<strong>${esc(p.titulo)}</strong><span>${esc(metaOf(p))}</span>`;
+  }
+  function openLightbox(n) { lastFocus = document.activeElement; showLb(n); lb.classList.add("is-open"); lb.setAttribute("aria-hidden", "false"); document.body.classList.add("no-scroll"); $("#lightboxClose").focus(); }
+  function closeLightbox() { lb.classList.remove("is-open"); lb.setAttribute("aria-hidden", "true"); document.body.classList.remove("no-scroll"); lastFocus?.focus(); }
+  $("#lightboxClose").addEventListener("click", closeLightbox);
+  $("#lightboxPrev").addEventListener("click", () => showLb(lbPos - 1));
+  $("#lightboxNext").addEventListener("click", () => showLb(lbPos + 1));
+  lb.addEventListener("click", e => { if (e.target === lb) closeLightbox(); });
+  addEventListener("keydown", e => { if (e.key === "Escape" && lb.classList.contains("is-open")) closeLightbox(); });
+
+  /* Testemunhos */
+  const real = (S.testemunhos || []).filter(t => t && t.texto);
+  const vazio = !real.length;
+  const voices = vazio
+    ? Array.from({ length: S.espacosTestemunhos || 3 }, (_, i) => ({ nome: "Cliente " + (i + 1), texto: "Espaço reservado para o testemunho de um cliente.", servico: "Serviço", local: "Localidade" }))
+    : real;
+  const q = $("#voiceQuote"), who = $("#voiceWho"), tabs = $("#voiceTabs");
+  q.classList.toggle("is-empty", vazio);
+  tabs.innerHTML = voices.map((t, i) => `<button role="tab" aria-selected="${i === 0}"${i === 0 ? ' class="is-active"' : ""}>${esc(t.nome)}</button>`).join("");
+  const paint = i => {
+    const t = voices[i];
+    q.textContent = vazio ? t.texto : "“" + t.texto + "”";
+    who.innerHTML = `${t.foto ? `<img src="${esc(t.foto)}" alt="" loading="lazy">` : ""}<span><strong>${esc(t.nome)}</strong><small>${[t.servico, t.local].filter(Boolean).map(esc).join(" · ")}</small></span>`;
+    $$("button", tabs).forEach((b, n) => { b.classList.toggle("is-active", n === i); b.setAttribute("aria-selected", n === i); });
+  };
+  tabs.addEventListener("click", e => {
+    const i = $$("button", tabs).indexOf(e.target.closest("button")); if (i < 0) return;
+    if (reduce) return paint(i);
+    q.classList.add("is-fading"); setTimeout(() => { paint(i); q.classList.remove("is-fading"); }, 250);
+  });
+  if (voices.length < 2) tabs.hidden = true;
+  paint(0);
+
+  /* Formulário -> WhatsApp */
+  const form = $("#quoteForm"), note = $("#formNote");
+  $$("[data-servico]").forEach(a => a.addEventListener("click", () => { form.servico.value = a.dataset.servico; }));
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const req = $$("[required]", form), bad = req.filter(f => !f.value.trim());
+    req.forEach(f => f.classList.toggle("is-invalid", bad.includes(f)));
+    if (bad.length) { note.textContent = "Preencha os campos assinalados."; note.className = "form__note is-error"; bad[0].focus(); return; }
+    const d = Object.fromEntries(new FormData(form));
+    const msg = `Olá, gostaria de pedir um orçamento.\n\nNome: ${d.nome}\nTelefone: ${d.telefone}\nServiço: ${d.servico}${d.local ? `\nLocalidade: ${d.local}` : ""}\n\n${d.mensagem}`;
+    window.open(waLink(msg), "_blank", "noopener");
+    note.textContent = "A abrir o WhatsApp com o seu pedido."; note.className = "form__note is-ok";
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>

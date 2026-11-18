@@ -47,4 +47,4 @@ Algumas dicas:
 - Secção de testemunhos reais (lista `testemunhos` em `js/config.js`, com foto opcional em `img/clientes/`)
 - Design sóbrio azul e branco, sem cantos arredondados, adaptado a telemóvel
 
-`monteiro-servicos-V1.html` (design anterior) e `monteiro-servicos-V2.html` (design atual, igual ao `index.html`) são cópias do site num só ficheiro, para comparar. Não se atualizam sozinhas: têm de ser geradas de novo depois de alterar os outros ficheiros.
+`monteiro-servicos-V1.html` (design anterior) e `monteiro-servicos-V2.html` (design atual, igual ao `index.html`) e `monteiro-servicos-V3.html` (proposta mais recente, gerada a partir de `v3/template.html` e de `js/config.js`) são cópias do site num só ficheiro, para comparar. Não se atualizam sozinhas: têm de ser geradas de novo depois de alterar os outros ficheiros.
