@@ -279,3 +279,13 @@ p { margin: 0; }
 .hero__bar { padding-left: 0; }
 .hero__arrows { order: -1; }
 .hero__arrows button { border-left: 0; border-right: 1px solid var(--line); }
+
+/* Como trabalhamos: texto corrido */
+.statement { background: var(--navy); color: #c3d3ea; padding-block: 104px; }
+.statement__inner { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 72px; align-items: end; }
+.statement__text { font-size: clamp(1.6rem, 2.9vw, 2.5rem); line-height: 1.25; font-weight: 600; letter-spacing: -.02em; color: #fff; }
+.statement__side p { margin-bottom: 28px; }
+@media (max-width: 900px) {
+  .statement { padding-block: 72px; }
+  .statement__inner { grid-template-columns: 1fr; gap: 32px; }
+}

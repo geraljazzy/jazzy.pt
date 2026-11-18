@@ -295,6 +295,16 @@ p { margin: 0; }
 .hero__arrows { order: -1; }
 .hero__arrows button { border-left: 0; border-right: 1px solid var(--line); }
 
+/* Como trabalhamos: texto corrido */
+.statement { background: var(--navy); color: #c3d3ea; padding-block: 104px; }
+.statement__inner { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 72px; align-items: end; }
+.statement__text { font-size: clamp(1.6rem, 2.9vw, 2.5rem); line-height: 1.25; font-weight: 600; letter-spacing: -.02em; color: #fff; }
+.statement__side p { margin-bottom: 28px; }
+@media (max-width: 900px) {
+  .statement { padding-block: 72px; }
+  .statement__inner { grid-template-columns: 1fr; gap: 32px; }
+}
+
 </style>
 </head>
 <body>
@@ -309,7 +319,6 @@ p { margin: 0; }
       <nav class="nav" id="nav" aria-label="Navegação principal">
         <a href="#servicos">Serviços</a>
         <a href="#trabalhos">Trabalhos</a>
-        <a href="#processo">Como funciona</a>
         <a href="#testemunhos">Testemunhos</a>
         <a href="#contacto">Contacto</a>
       </nav>
@@ -386,16 +395,14 @@ p { margin: 0; }
       </div>
     </section>
 
-    <!-- Como funciona -->
-    <section class="section section--dark" id="processo">
-      <div class="wrap">
-        <div class="head"><h2>Como funciona</h2></div>
-        <ol class="steps">
-          <li><span>1</span><h3>Contacto</h3><p>Por WhatsApp, telefone ou formulário. Pode enviar fotografias do espaço.</p></li>
-          <li><span>2</span><h3>Visita e orçamento</h3><p>Vemos o espaço e enviamos o orçamento detalhado por escrito.</p></li>
-          <li><span>3</span><h3>Obra</h3><p>Trabalho dentro do prazo combinado, com contacto direto durante a obra.</p></li>
-          <li><span>4</span><h3>Entrega</h3><p>Revemos tudo consigo. A obra só fecha quando estiver como combinado.</p></li>
-        </ol>
+    <!-- Como trabalhamos -->
+    <section class="statement" id="processo">
+      <div class="wrap statement__inner">
+        <p class="statement__text">Vamos ver o espaço, enviamos o orçamento por escrito e combinamos o prazo. Durante a obra, fala diretamente com quem a está a fazer.</p>
+        <div class="statement__side">
+          <p>No fim revemos tudo consigo. A obra só fica fechada quando estiver como foi combinado.</p>
+          <a href="#contacto" class="btn btn--white">Pedir orçamento</a>
+        </div>
       </div>
     </section>
 
