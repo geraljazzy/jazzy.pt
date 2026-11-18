@@ -6,10 +6,11 @@
   const esc = (t = "") => String(t).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
   /* ---------- Contactos ---------- */
-  const waLink = (msg = "Olá! Gostaria de pedir um orçamento.") =>
+  const waLink = (msg = S.mensagemWhatsapp || "Olá, gostaria de pedir um orçamento.") =>
     `https://wa.me/${S.whatsapp}?text=${encodeURIComponent(msg)}`;
 
   $$("[data-whatsapp]").forEach(a => { a.href = waLink(); a.target = "_blank"; a.rel = "noopener"; });
+  $$("[data-whatsapp-review]").forEach(a => { a.href = waLink("Olá, gostaria de deixar o meu testemunho sobre o trabalho realizado:"); a.target = "_blank"; a.rel = "noopener"; });
   $$("[data-phone]").forEach(a => { a.textContent = S.telefone; a.href = "tel:" + (S.telefone || "").replace(/\s/g, ""); });
   $$("[data-email]").forEach(a => { a.textContent = S.email; a.href = "mailto:" + S.email; });
   $$("[data-area]").forEach(el => el.textContent = S.zona);
@@ -19,10 +20,6 @@
   $("#year").textContent = new Date().getFullYear();
 
   /* ---------- Cabeçalho / menu ---------- */
-  const header = $(".header");
-  const onScroll = () => header.classList.toggle("is-scrolled", scrollY > 10);
-  addEventListener("scroll", onScroll, { passive: true }); onScroll();
-
   const burger = $("#burger"), nav = $("#nav");
   const toggleNav = open => {
     nav.classList.toggle("is-open", open);
@@ -38,16 +35,16 @@
     container.innerHTML = `
       <div class="ba__img ba__img--after">
         <img src="${esc(p.depois)}" alt="${esc(p.titulo)} — depois" loading="lazy" draggable="false">
-        <div class="ba__ph"><span>DEPOIS</span><small>${esc(p.depois)}</small></div>
+        <div class="ba__ph"><span>Foto depois</span><small>${esc(p.depois)}</small></div>
       </div>
       <div class="ba__img ba__img--before">
         <img src="${esc(p.antes)}" alt="${esc(p.titulo)} — antes" loading="lazy" draggable="false">
-        <div class="ba__ph"><span>ANTES</span><small>${esc(p.antes)}</small></div>
+        <div class="ba__ph"><span>Foto antes</span><small>${esc(p.antes)}</small></div>
       </div>
       <span class="ba__tag ba__tag--before">Antes</span>
       <span class="ba__tag ba__tag--after">Depois</span>
       <div class="ba__handle" role="slider" tabindex="0" aria-label="Comparar antes e depois" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
-        <span class="ba__knob">‹ ›</span>
+        <span class="ba__knob">⟷</span>
       </div>`;
     $$("img", container).forEach(img => {
       const mark = () => img.parentElement.classList.add("is-missing");
@@ -88,23 +85,11 @@
 
   const projetos = S.projetos || [];
 
-  /* Hero: comparador com animação de apresentação */
+  /* Início: primeiro trabalho em destaque */
   const hero = $("#heroCompare");
   if (hero && projetos[0]) {
-    const set = buildCompare(hero, projetos[0]);
-    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      let t0 = null, done = false;
-      const anim = ts => {
-        if (done) return;
-        t0 ??= ts;
-        const k = (ts - t0) / 2600;
-        if (k >= 1) { set(50); return; }
-        set(50 + Math.sin(k * Math.PI * 2) * 30);
-        requestAnimationFrame(anim);
-      };
-      hero.addEventListener("pointerdown", () => done = true, { once: true });
-      setTimeout(() => requestAnimationFrame(anim), 700);
-    }
+    buildCompare(hero, projetos[0]);
+    $("#heroCaption").textContent = projetos[0].titulo + (projetos[0].local ? ", " + projetos[0].local : "");
   }
 
   /* ---------- Portefólio + filtros ---------- */
@@ -122,7 +107,6 @@
       const p = projetos[idx];
       const card = document.createElement("article");
       card.className = "project";
-      card.style.animationDelay = n * 70 + "ms";
       card.innerHTML = `
         <div class="ba"></div>
         <div class="project__body">
@@ -177,25 +161,25 @@
     if (e.key === "PageDown") showLb(lbPos + 1);
   });
 
-  /* ---------- Opiniões (carrossel) ---------- */
-  const ops = S.opinioes || [];
-  const track = $("#testimonialsTrack"), dots = $("#testimonialsDots");
-  track.innerHTML = ops.map(o => `
-    <figure class="quote">
-      <div class="quote__stars" aria-label="5 estrelas">★★★★★</div>
-      <blockquote>“${esc(o.texto)}”</blockquote>
-      <figcaption><span class="quote__avatar">${esc(o.nome.charAt(0))}</span><span><strong>${esc(o.nome)}</strong><small>${esc(o.local || "")}</small></span></figcaption>
-    </figure>`).join("");
-  dots.innerHTML = ops.map((_, i) => `<button aria-label="Opinião ${i + 1}"${i === 0 ? ' class="is-active"' : ""}></button>`).join("");
-  let qi = 0, qTimer;
-  const goQuote = i => {
-    qi = (i + ops.length) % ops.length;
-    track.style.transform = `translateX(-${qi * 100}%)`;
-    $$("button", dots).forEach((d, n) => d.classList.toggle("is-active", n === qi));
-  };
-  const autoplay = () => { clearInterval(qTimer); if (ops.length > 1) qTimer = setInterval(() => goQuote(qi + 1), 6000); };
-  dots.addEventListener("click", e => { const i = $$("button", dots).indexOf(e.target); if (i >= 0) { goQuote(i); autoplay(); } });
-  autoplay();
+  /* ---------- Testemunhos ---------- */
+  const tWrap = $("#testimonials");
+  const tList = (S.testemunhos || []).filter(t => t && t.texto);
+  if (tList.length) {
+    tWrap.innerHTML = tList.map(t => `
+      <figure class="testimonial">
+        <blockquote>${esc(t.texto)}</blockquote>
+        <footer>
+          ${t.foto ? `<img class="testimonial__photo" src="${esc(t.foto)}" alt="${esc(t.nome)}" loading="lazy">` : `<span class="testimonial__initial">${esc((t.nome || "?").charAt(0))}</span>`}
+          <span><strong>${esc(t.nome)}</strong><small>${[t.servico, t.local].filter(Boolean).map(esc).join(" · ")}</small></span>
+        </footer>
+      </figure>`).join("");
+  } else {
+    tWrap.innerHTML = Array.from({ length: S.espacosTestemunhos || 3 }, () => `
+      <div class="testimonial testimonial--empty">
+        <strong>Espaço para testemunho</strong>
+        <span>Os testemunhos dos nossos clientes vão aparecer aqui.</span>
+      </div>`).join("");
+  }
 
   /* ---------- Formulário -> WhatsApp ---------- */
   const form = $("#quoteForm"), note = $("#formNote");
@@ -205,25 +189,11 @@
     $$("[required]", form).forEach(f => f.classList.toggle("is-invalid", bad.includes(f)));
     if (bad.length) { note.textContent = "Por favor preencha os campos assinalados."; note.className = "form__note is-error"; bad[0].focus(); return; }
     const d = Object.fromEntries(new FormData(form));
-    const msg = `Olá! Gostaria de pedir um orçamento.\n\n• Nome: ${d.nome}\n• Telefone: ${d.telefone}\n• Serviço: ${d.servico}${d.local ? `\n• Localidade: ${d.local}` : ""}\n\n${d.mensagem}`;
+    const msg = `Olá, gostaria de pedir um orçamento.\n\n• Nome: ${d.nome}\n• Telefone: ${d.telefone}\n• Serviço: ${d.servico}${d.local ? `\n• Localidade: ${d.local}` : ""}\n\n${d.mensagem}`;
     window.open(waLink(msg), "_blank", "noopener");
-    note.textContent = "Obrigado! A abrir o WhatsApp com o seu pedido…";
+    note.textContent = "A abrir o WhatsApp com o seu pedido.";
     note.className = "form__note is-ok";
     form.reset();
   });
 
-  /* ---------- Animações ao fazer scroll ---------- */
-  const io = new IntersectionObserver(entries => entries.forEach(en => {
-    if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
-  }), { threshold: 0.12 });
-  $$(".reveal").forEach(el => io.observe(el));
-
-  /* Contadores */
-  const cio = new IntersectionObserver(entries => entries.forEach(en => {
-    if (!en.isIntersecting) return;
-    const el = en.target, end = +el.dataset.count, t0 = performance.now();
-    const tick = t => { const k = Math.min(1, (t - t0) / 1400); el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(tick); };
-    requestAnimationFrame(tick); cio.unobserve(el);
-  }), { threshold: 0.6 });
-  $$("[data-count]").forEach(el => cio.observe(el));
 })();

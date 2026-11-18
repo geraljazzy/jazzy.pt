@@ -5,7 +5,8 @@
 
 window.SITE = {
   // ---- Contactos -----------------------------------------------------
-  whatsapp: "351912345678",          // só números, com indicativo (351…)
+  whatsapp: "351912345678",          // só números, com indicativo (351…); abre o chat diretamente
+  mensagemWhatsapp: "Olá, gostaria de pedir um orçamento.",
   telefone: "+351 912 345 678",
   email: "geral@monteiroservicos.pt",
   zona: "Portugal — Norte e Centro",
@@ -67,10 +68,18 @@ window.SITE = {
     }
   ],
 
-  // ---- Opiniões de clientes -------------------------------------------
-  opinioes: [
-    { nome: "Ana R.", local: "Porto", texto: "Trabalho impecável na casa de banho. Cumpriram o prazo e deixaram tudo limpo. Recomendo!" },
-    { nome: "Carlos M.", local: "Braga", texto: "Orçamento claro, sem surpresas no fim. A cozinha ficou exatamente como imaginámos." },
-    { nome: "Sofia L.", local: "Guimarães", texto: "Equipa simpática e muito profissional. Já os chamei para uma segunda obra." }
-  ]
+  // ---- Testemunhos reais de clientes ---------------------------------
+  // Adicione aqui os testemunhos à medida que os clientes os enviarem.
+  // "foto" é opcional (coloque-a em img/clientes/). Sem foto aparece a inicial.
+  // Enquanto a lista estiver vazia, o site mostra espaços reservados.
+  //
+  // Exemplo:
+  // { nome: "Ana Ribeiro", local: "Porto", servico: "Casa de banho",
+  //   texto: "Escreva aqui o testemunho exatamente como o cliente o enviou.",
+  //   foto: "img/clientes/ana.jpg" },
+  testemunhos: [
+  ],
+
+  // Número de espaços reservados a mostrar enquanto não houver testemunhos
+  espacosTestemunhos: 3
 };

@@ -13,7 +13,7 @@ Abra o `index.html` no navegador, ou publique a pasta num alojamento estático (
 |---|---|
 | WhatsApp, telefone, email, zona, horário | `whatsapp`, `telefone`, `email`, `zona`, `horario` |
 | Trabalhos antes/depois | lista `projetos` |
-| Opiniões de clientes | lista `opinioes` |
+| Testemunhos reais | lista `testemunhos` |
 
 ### Adicionar fotos de antes e depois
 
@@ -42,5 +42,6 @@ Algumas dicas:
 - Comparador antes/depois que se arrasta (rato, toque e teclado)
 - Filtros por categoria e visualização em ecrã inteiro com navegação
 - Formulário de orçamento que abre o WhatsApp com a mensagem já preenchida
-- Botão flutuante do WhatsApp, carrossel de opiniões, FAQ e contadores animados
-- Menu para telemóvel, animações ao fazer scroll e respeito pela opção "reduzir movimento"
+- Logótipo do WhatsApp no topo, no contacto, no rodapé e flutuante: abre diretamente a conversa
+- Secção de testemunhos reais (lista `testemunhos` em `js/config.js`, com foto opcional em `img/clientes/`)
+- Design sóbrio azul e branco, sem cantos arredondados, adaptado a telemóvel
