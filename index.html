@@ -3,145 +3,140 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Monteiro Serviços | Remodelações e Manutenção</title>
+  <title>Monteiro Serviços | Remodelações e Reparações</title>
   <meta name="description" content="Monteiro Serviços: remodelações, pintura, pavimentos, canalização, eletricidade e manutenção. Veja trabalhos realizados e peça orçamento.">
-  <meta property="og:title" content="Monteiro Serviços | Remodelações e Manutenção">
+  <meta property="og:title" content="Monteiro Serviços | Remodelações e Reparações">
   <meta property="og:description" content="Trabalhos realizados, antes e depois. Peça orçamento sem compromisso.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#0b2d5b">
+  <meta name="theme-color" content="#0a2a57">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Ícone WhatsApp reutilizável -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
   </svg>
 
   <header class="header" id="topo">
-    <div class="container header__inner">
-      <a href="#topo" class="logo" aria-label="Monteiro Serviços, início">
-        <span class="logo__name">MONTEIRO</span>
-        <span class="logo__sub">Serviços</span>
-      </a>
+    <div class="wrap header__inner">
+      <a href="#topo" class="logo" aria-label="Monteiro Serviços, início">Monteiro<span>Serviços</span></a>
       <nav class="nav" id="nav" aria-label="Navegação principal">
         <a href="#servicos">Serviços</a>
         <a href="#trabalhos">Trabalhos</a>
+        <a href="#processo">Como funciona</a>
         <a href="#testemunhos">Testemunhos</a>
         <a href="#contacto">Contacto</a>
       </nav>
       <div class="header__actions">
         <a class="header__phone" data-phone href="#"></a>
-        <a class="btn btn--wa" data-whatsapp href="#"><svg class="ico"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+        <a class="wa-btn" data-whatsapp href="#" aria-label="Abrir conversa no WhatsApp"><svg><use href="#i-wa"/></svg><span>WhatsApp</span></a>
         <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- Início -->
+    <!-- Abertura: texto + antes/depois em rotação -->
     <section class="hero">
-      <div class="container hero__inner">
-        <div class="hero__text">
-          <p class="kicker">Remodelações e manutenção</p>
-          <h1>Obras bem feitas, do início ao fim.</h1>
-          <p class="lead">Remodelações, pintura, pavimentos, canalização e eletricidade para casas e empresas. Orçamento sem compromisso.</p>
-          <div class="hero__cta">
-            <a href="#contacto" class="btn btn--primary">Pedir orçamento</a>
-            <a href="#trabalhos" class="btn btn--line">Ver trabalhos</a>
-          </div>
-        </div>
-        <div class="hero__visual">
-          <div class="ba ba--hero" id="heroCompare"></div>
-          <p class="hero__caption" id="heroCaption"></p>
+      <div class="hero__panel">
+        <p class="hero__label">Remodelações · Reparações · Manutenção</p>
+        <h1>Remodelações e reparações, feitas como deve ser.</h1>
+        <p class="hero__lead">Casas de banho, cozinhas, pintura, pavimentos, canalização e eletricidade. Uma equipa, um orçamento e um prazo combinado.</p>
+        <div class="hero__cta">
+          <a href="#contacto" class="btn btn--white">Pedir orçamento</a>
+          <a data-whatsapp href="#" class="btn btn--ghost"><svg class="ico"><use href="#i-wa"/></svg>Falar no WhatsApp</a>
         </div>
       </div>
-      <div class="container">
-        <ul class="facts">
-          <li><strong>Orçamento gratuito</strong><span>Visita ao local sem compromisso</span></li>
-          <li><strong>Prazos definidos</strong><span>Datas acordadas antes de começar</span></li>
-          <li><strong>Garantia</strong><span>Em todos os trabalhos realizados</span></li>
-          <li><strong>Obra limpa</strong><span>Arrumação no fim de cada dia</span></li>
-        </ul>
+      <div class="hero__stage">
+        <div class="ba ba--hero" id="heroCompare"></div>
+        <div class="hero__bar">
+          <span class="hero__count" id="heroCount"></span>
+          <p class="hero__title"><strong id="heroTitle"></strong><span id="heroPlace"></span></p>
+          <div class="hero__arrows">
+            <button id="heroPrev" aria-label="Trabalho anterior">←</button>
+            <button id="heroNext" aria-label="Trabalho seguinte">→</button>
+          </div>
+          <div class="hero__progress"><i id="heroProgress"></i></div>
+        </div>
       </div>
     </section>
+
+    <div class="strip">
+      <div class="wrap strip__inner">
+        <span>Orçamento gratuito</span>
+        <span>Prazo combinado por escrito</span>
+        <span>Garantia nos trabalhos</span>
+        <span>Obra limpa no fim de cada dia</span>
+      </div>
+    </div>
 
     <!-- Serviços -->
     <section class="section" id="servicos">
-      <div class="container">
-        <header class="section__head">
-          <p class="kicker">Serviços</p>
-          <h2>O que fazemos</h2>
-        </header>
-        <div class="services">
-          <article class="service"><span class="service__n">01</span><h3>Remodelações</h3><p>Cozinhas, casas de banho e habitações completas, com acompanhamento em todas as fases.</p></article>
-          <article class="service"><span class="service__n">02</span><h3>Pintura</h3><p>Interiores e exteriores. Preparação de superfícies, reparação de fissuras e acabamento.</p></article>
-          <article class="service"><span class="service__n">03</span><h3>Pavimentos e revestimentos</h3><p>Cerâmica, flutuante, vinílico e microcimento em pavimentos e paredes.</p></article>
-          <article class="service"><span class="service__n">04</span><h3>Canalização</h3><p>Reparação de roturas, substituição de tubagens, loiças sanitárias e esquentadores.</p></article>
-          <article class="service"><span class="service__n">05</span><h3>Eletricidade</h3><p>Quadros elétricos, tomadas, iluminação e revisão de instalações antigas.</p></article>
-          <article class="service"><span class="service__n">06</span><h3>Manutenção</h3><p>Pequenas reparações, montagens, impermeabilizações e manutenção de espaços.</p></article>
+      <div class="wrap split">
+        <div class="split__aside">
+          <h2>Serviços</h2>
+          <p>Fazemos a obra completa ou só a parte de que precisa. Escolha um serviço para pedir orçamento.</p>
+        </div>
+        <div class="srv-list">
+          <a class="srv" href="#contacto" data-servico="Remodelação"><h3>Remodelações</h3><p>Cozinhas, casas de banho e casas completas, com acompanhamento em todas as fases.</p><span class="srv__go" aria-hidden="true">→</span></a>
+          <a class="srv" href="#contacto" data-servico="Pintura"><h3>Pintura</h3><p>Interiores e exteriores. Preparação das paredes, reparação de fissuras e acabamento.</p><span class="srv__go" aria-hidden="true">→</span></a>
+          <a class="srv" href="#contacto" data-servico="Pavimentos / revestimentos"><h3>Pavimentos e revestimentos</h3><p>Cerâmica, flutuante, vinílico e microcimento, em chão e paredes.</p><span class="srv__go" aria-hidden="true">→</span></a>
+          <a class="srv" href="#contacto" data-servico="Canalização"><h3>Canalização</h3><p>Roturas, substituição de tubagens, loiças sanitárias e esquentadores.</p><span class="srv__go" aria-hidden="true">→</span></a>
+          <a class="srv" href="#contacto" data-servico="Eletricidade"><h3>Eletricidade</h3><p>Quadros elétricos, tomadas, iluminação e revisão de instalações antigas.</p><span class="srv__go" aria-hidden="true">→</span></a>
+          <a class="srv" href="#contacto" data-servico="Manutenção / reparação"><h3>Manutenção</h3><p>Pequenas reparações, montagens e impermeabilizações.</p><span class="srv__go" aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
 
-    <!-- Trabalhos: antes e depois -->
+    <!-- Trabalhos -->
     <section class="section section--tint" id="trabalhos">
-      <div class="container">
-        <header class="section__head section__head--split">
-          <div>
-            <p class="kicker">Trabalhos realizados</p>
-            <h2>Antes e depois</h2>
-          </div>
-          <p>Arraste a barra sobre cada imagem para comparar o estado inicial com o resultado final.</p>
-        </header>
+      <div class="wrap">
+        <div class="head">
+          <h2>Trabalhos: antes e depois</h2>
+          <p>Arraste a barra sobre cada fotografia para comparar.</p>
+        </div>
         <div class="filters" id="filters" role="tablist" aria-label="Filtrar trabalhos"></div>
         <div class="projects" id="projects"></div>
       </div>
     </section>
 
     <!-- Como funciona -->
-    <section class="section" id="processo">
-      <div class="container">
-        <header class="section__head">
-          <p class="kicker">Como funciona</p>
-          <h2>Do contacto à entrega</h2>
-        </header>
+    <section class="section section--dark" id="processo">
+      <div class="wrap">
+        <div class="head"><h2>Como funciona</h2></div>
         <ol class="steps">
           <li><span>1</span><h3>Contacto</h3><p>Por WhatsApp, telefone ou formulário. Pode enviar fotografias do espaço.</p></li>
-          <li><span>2</span><h3>Visita e orçamento</h3><p>Avaliamos no local e enviamos um orçamento detalhado por escrito.</p></li>
-          <li><span>3</span><h3>Execução</h3><p>Trabalho dentro do prazo combinado, com contacto direto durante a obra.</p></li>
-          <li><span>4</span><h3>Entrega</h3><p>Revisão final consigo. A obra só termina quando estiver tudo como combinado.</p></li>
+          <li><span>2</span><h3>Visita e orçamento</h3><p>Vemos o espaço e enviamos o orçamento detalhado por escrito.</p></li>
+          <li><span>3</span><h3>Obra</h3><p>Trabalho dentro do prazo combinado, com contacto direto durante a obra.</p></li>
+          <li><span>4</span><h3>Entrega</h3><p>Revemos tudo consigo. A obra só fecha quando estiver como combinado.</p></li>
         </ol>
       </div>
     </section>
 
     <!-- Testemunhos -->
-    <section class="section section--tint" id="testemunhos">
-      <div class="container">
-        <header class="section__head section__head--split">
-          <div>
-            <p class="kicker">Testemunhos</p>
-            <h2>A opinião de quem já trabalhou connosco</h2>
-          </div>
-          <a class="btn btn--line" data-whatsapp-review href="#">Deixar o meu testemunho</a>
-        </header>
+    <section class="section" id="testemunhos">
+      <div class="wrap split">
+        <div class="split__aside">
+          <h2>Testemunhos</h2>
+          <p>O que dizem as pessoas para quem já trabalhámos.</p>
+          <a class="link-wa" data-whatsapp-review href="#"><svg class="ico"><use href="#i-wa"/></svg>Enviar o meu testemunho</a>
+        </div>
         <div class="testimonials" id="testimonials"></div>
       </div>
     </section>
 
     <!-- Contacto -->
-    <section class="section" id="contacto">
-      <div class="container contact">
+    <section class="section section--dark contact-section" id="contacto">
+      <div class="wrap contact">
         <div class="contact__info">
-          <p class="kicker">Contacto</p>
-          <h2>Pedir orçamento</h2>
-          <p>Preencha o formulário e a mensagem é enviada para o nosso WhatsApp. Também pode ligar ou escrever diretamente.</p>
+          <h2>Tem uma obra para fazer?</h2>
+          <p>Descreva o trabalho e a mensagem segue para o nosso WhatsApp. Se preferir, ligue ou escreva diretamente.</p>
           <dl class="contact__list">
             <div><dt>Telefone</dt><dd><a data-phone href="#"></a></dd></div>
-            <div><dt>WhatsApp</dt><dd><a data-whatsapp href="#" class="wa-link"><svg class="ico"><use href="#i-wa"/></svg>Abrir conversa</a></dd></div>
+            <div><dt>WhatsApp</dt><dd><a data-whatsapp href="#" class="contact__wa"><svg class="ico"><use href="#i-wa"/></svg>Abrir conversa</a></dd></div>
             <div><dt>Email</dt><dd><a data-email href="#"></a></dd></div>
             <div><dt>Zona</dt><dd data-area></dd></div>
             <div><dt>Horário</dt><dd data-hours></dd></div>
@@ -149,6 +144,7 @@
           </dl>
         </div>
         <form class="form" id="quoteForm" novalidate>
+          <h3>Pedido de orçamento</h3>
           <div class="form__row">
             <label>Nome<input name="nome" required autocomplete="name"></label>
             <label>Telefone<input name="telefone" required type="tel" autocomplete="tel"></label>
@@ -158,8 +154,6 @@
               <select name="servico" required>
                 <option value="">Selecione</option>
                 <option>Remodelação</option>
-                <option>Cozinha</option>
-                <option>Casa de banho</option>
                 <option>Pintura</option>
                 <option>Pavimentos / revestimentos</option>
                 <option>Canalização</option>
@@ -171,7 +165,7 @@
             <label>Localidade<input name="local"></label>
           </div>
           <label>Descrição do trabalho<textarea name="mensagem" rows="5" required></textarea></label>
-          <button class="btn btn--primary btn--block" type="submit"><svg class="ico"><use href="#i-wa"/></svg>Enviar pelo WhatsApp</button>
+          <button class="btn btn--blue btn--block" type="submit"><svg class="ico"><use href="#i-wa"/></svg>Enviar pelo WhatsApp</button>
           <p class="form__note" id="formNote" role="status"></p>
         </form>
       </div>
@@ -179,26 +173,23 @@
   </main>
 
   <footer class="footer">
-    <div class="container footer__inner">
-      <div class="logo logo--light"><span class="logo__name">MONTEIRO</span><span class="logo__sub">Serviços</span></div>
+    <div class="wrap footer__inner">
+      <span class="logo logo--light">Monteiro<span>Serviços</span></span>
       <p>© <span id="year"></span> Monteiro Serviços</p>
-      <a data-whatsapp href="#" class="footer__wa"><svg class="ico"><use href="#i-wa"/></svg>WhatsApp</a>
+      <a href="#topo">Voltar ao topo</a>
     </div>
   </footer>
 
-  <!-- WhatsApp: acesso direto ao chat -->
-  <a class="wa-fab" data-whatsapp href="#" aria-label="Abrir conversa no WhatsApp">
-    <svg><use href="#i-wa"/></svg>
-  </a>
+  <a class="wa-fab" data-whatsapp href="#" aria-label="Abrir conversa no WhatsApp"><svg><use href="#i-wa"/></svg></a>
 
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Trabalho em detalhe">
     <button class="lightbox__close" id="lightboxClose" aria-label="Fechar">×</button>
-    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Anterior">‹</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Anterior">←</button>
     <div class="lightbox__body">
       <div class="ba ba--lg" id="lightboxCompare"></div>
       <div class="lightbox__caption" id="lightboxCaption"></div>
     </div>
-    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Seguinte">›</button>
+    <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Seguinte">→</button>
   </div>
 
   <script src="js/config.js"></script>

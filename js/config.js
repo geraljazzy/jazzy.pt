@@ -13,6 +13,9 @@ window.SITE = {
   horario: "Seg–Sáb · 08h00–19h00",
   instagram: "monteiro_servic",
 
+  // De quantos em quantos segundos muda o trabalho em destaque no topo
+  rotacaoSegundos: 30,
+
   // ---- Trabalhos: Antes & Depois --------------------------------------
   // Coloque as fotos em img/projetos/ e indique os nomes abaixo.
   // Use fotos tiradas do MESMO ângulo para o comparador ficar perfeito.
